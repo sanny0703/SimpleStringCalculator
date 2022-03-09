@@ -9,7 +9,19 @@ class CalculatorTest {
 
     @Test
     @DisplayName("empty String should retutn 0")
-    public void testingEmptyString(){
+    public void testEmptyString(){
         assertEquals(0,Calculator.add(""));
     }
+    @Test
+    @DisplayName("Testing one number")
+    public void testOneNumber(){
+        assertEquals(1,Calculator.add("1"));
+    }
+    @Test
+    @DisplayName("Testing Two numbers")
+    public void testTwoNumbers(){
+        assertEquals(3,Calculator.add("1,2"));
+
+    }
+
 }
