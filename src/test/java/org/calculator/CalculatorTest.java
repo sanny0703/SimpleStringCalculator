@@ -28,5 +28,10 @@ class CalculatorTest {
     public void testMoreThanTwoNumbers(){
         assertEquals(6,Calculator.add("0,1,2,3"));
     }
+    @Test
+    @DisplayName("Testing new line as delimiter along with comma")
+    public void testNewLine(){
+        assertEquals(6,Calculator.add("0\n1\n2,3"));
+    }
 
 }

@@ -8,6 +8,7 @@ public class Calculator {
         }
         else{
             String delimiter =",";
+            delimiter +="|\n";
             String[] nums = toStringArray(numbers,delimiter);
             return calculateTotal(nums);
         }
@@ -15,7 +16,7 @@ public class Calculator {
 
     /**
      *
-     * Function to get integer value of the string
+     * @param number:string number
      * returns an integer
      */
     public static int toInt(String number){
@@ -24,7 +25,7 @@ public class Calculator {
     /**
      *
      * @param numbers:Input String of numbers
-     * @param delimiter
+     * @param delimiter:delimiter to split the numbers String
      * returns string array of numbers split at delimiter provided
      */
     public static String[] toStringArray(String numbers,String delimiter){
@@ -34,7 +35,7 @@ public class Calculator {
 
     /**
      *
-     * @param numbers
+     * @param numbers:String array of input numbers
      * returns the total sum of numbers in the array
      */
     public static int calculateTotal(String[] numbers){
