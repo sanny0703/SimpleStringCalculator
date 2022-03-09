@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class CalculatorTest {
 
     @Test
-    @DisplayName("empty String should retutn 0")
+    @DisplayName("empty String should return 0")
     public void testEmptyString(){
         assertEquals(0,Calculator.add(""));
     }
@@ -22,6 +22,11 @@ class CalculatorTest {
     public void testTwoNumbers(){
         assertEquals(3,Calculator.add("1,2"));
 
+    }
+    @Test
+    @DisplayName("Testing more than two numbers")
+    public void testMoreThanTwoNumbers(){
+        assertEquals(6,Calculator.add("0,1,2,3"));
     }
 
 }

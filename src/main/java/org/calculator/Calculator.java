@@ -7,7 +7,8 @@ public class Calculator {
             return 0;
         }
         else{
-            String[] nums = numbers.split(",");
+            String delimiter =",";
+            String[] nums = toStringArray(numbers,delimiter);
             return calculateTotal(nums);
         }
     }
@@ -20,7 +21,15 @@ public class Calculator {
     public static int toInt(String number){
         return Integer.parseInt(number);
     }
-
+    /**
+     *
+     * @param numbers:Input String of numbers
+     * @param delimiter
+     * returns string array of numbers split at delimiter provided
+     */
+    public static String[] toStringArray(String numbers,String delimiter){
+        return numbers.split(delimiter);
+    }
 
 
     /**
