@@ -33,5 +33,11 @@ class CalculatorTest {
     public void testNewLine(){
         assertEquals(6,Calculator.add("0\n1\n2,3"));
     }
+    @Test
+    @DisplayName("Testing if delimiter is specified at the start of the String")
+    public void testDelimiterSpecified(){
+        assertEquals(6,Calculator.add("//#\n0#1#2#3"));
+
+    }
 
 }

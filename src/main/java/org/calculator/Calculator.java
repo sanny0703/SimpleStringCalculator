@@ -1,5 +1,7 @@
 package org.calculator;
 
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
 public class Calculator {
 
     public static int add(String numbers){
@@ -7,8 +9,20 @@ public class Calculator {
             return 0;
         }
         else{
-            String delimiter =",";
-            delimiter +="|\n";
+            Pattern p = Pattern.compile("//(.*)\n(.*)");
+            Matcher m = p.matcher(numbers);
+            String delimiter;
+            // Checking whether delimiter is specified at the start of the numbers String
+            if(m.find()){
+                // to take care of delimiter whose length is greater than 1
+                delimiter = numbers.substring(2,2+m.group(1).length()) ;
+                // to get rid of the delimiter specification part of the numbers String
+                numbers = numbers.substring(2+m.group(1).length()+1);
+            }
+            else{
+                delimiter = ",";
+            }
+            delimiter += "|\n";
             String[] nums = toStringArray(numbers,delimiter);
             return calculateTotal(nums);
         }
