@@ -54,8 +54,24 @@ public class Calculator {
      */
     public static int calculateTotal(String[] numbers){
         int total = 0;
+        String negativeNumbers ="";
         for(String number:numbers){
-            total+=toInt(number);
+            // check whether it is a negative number or not
+            if(toInt(number)<0){
+                // check whether it is the first negative number or not
+                if(negativeNumbers.equals("")){
+                    negativeNumbers += toInt(number);
+                }
+                else{
+                    negativeNumbers+=","+toInt(number);
+                }
+            }
+            else {
+                total += toInt(number);
+            }
+        }
+        if(!negativeNumbers.equals("")){
+            throw  new IllegalArgumentException("negative numbers are not allowed: "+negativeNumbers);
         }
         return total;
     }
